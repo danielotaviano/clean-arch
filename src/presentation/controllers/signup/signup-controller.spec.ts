@@ -1,5 +1,5 @@
 import { ServerError, MissingParamError } from '../../errors'
-import { badRequest, serverError } from '../../helpers/http/http-helper'
+import { badRequest, ok, serverError } from '../../helpers/http/http-helper'
 import { SignUpController } from './signup-controller'
 import {
   AddAccount,
@@ -123,12 +123,9 @@ describe('SignUp Controller', () => {
     }
     const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(200)
-    expect(httpResponse.body).toEqual({
-      id: 'valid_id',
-      name: 'valid_name',
-      email: 'valid_email@mail.com',
-      password: 'valid_password'
-    })
+    expect(httpResponse).toEqual(ok({
+      accessToken: 'any_token'
+    }))
   })
   test('Should call Validation with correct values', async () => {
     const { sut, validationStub } = makeSut()
