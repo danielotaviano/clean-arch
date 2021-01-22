@@ -5,3 +5,4 @@ arch.png
 yarn.lock
 .env
 data
+!src/data
