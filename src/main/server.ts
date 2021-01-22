@@ -1,7 +1,7 @@
 
-import 'dotenv/config'
 import { MongoHelper } from '../infra/db/mongodb/helpers/mongo-helper'
 import env from './config/env'
+if (process.env.NODE_ENV !== 'production') import('dotenv/config')
 
 MongoHelper.connect(env.mongoUrl)
   .then(async () => {
