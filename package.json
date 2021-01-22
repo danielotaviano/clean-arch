@@ -1,6 +1,6 @@
 {
   "name": "clean-arch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Daniel Otaviano <danielpontes0@icloud.com>",
   "license": "MIT",
