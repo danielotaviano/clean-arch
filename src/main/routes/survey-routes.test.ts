@@ -53,8 +53,7 @@ describe('Survey Routes', () => {
       const res = await accountCollection.insertOne({
         name: 'Daniel Otaviano',
         email: 'danielotavianobp@gmail.com',
-        password: '123',
-        role: 'admin'
+        password: '123'
       })
       const id = res.ops[0]._id
       const accessToken = sign({ id }, env.jwtSecret)
