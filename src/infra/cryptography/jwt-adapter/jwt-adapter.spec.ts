@@ -43,5 +43,10 @@ describe('Jwt Adapter', () => {
       await sut.decrypt('token')
       expect(verifySpy).toHaveBeenCalledWith('token', 'secret')
     })
+    test('Should return a value on verify success', async () => {
+      const sut = makeSut()
+      const value = await sut.decrypt('token')
+      expect(value).toBe('any_value')
+    })
   })
 })
