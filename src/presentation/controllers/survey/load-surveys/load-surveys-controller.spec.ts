@@ -1,6 +1,7 @@
 /* eslint-disable jest/expect-expect */
 import { SurveyModel, LoadSurveys } from './load-survey-protocols'
 import { LoadSurveysController } from './load-surveys-controller'
+import { ok } from '../../../helpers/http/http-helper'
 import MockDate from 'mockdate'
 
 const makeFakeSurveys = (): SurveyModel[] => {
@@ -57,5 +58,10 @@ describe('LoadSurveys Controller', () => {
     const loadSpy = jest.spyOn(loadSurveysStub, 'load')
     await sut.handle({})
     expect(loadSpy).toHaveBeenCalled()
+  })
+  test('Should return 200 on success', async () => {
+    const { sut } = makeSut()
+    const httpResponse = await sut.handle({})
+    expect(httpResponse).toEqual(ok(makeFakeSurveys()))
   })
 })
