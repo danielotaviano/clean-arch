@@ -90,29 +90,7 @@ describe('Survey Routes', () => {
         .send()
         .expect(403)
     })
-    test('Should return 200 on load surveys with valid accessToken', async () => {
-      await surveyCollection.insertMany([
-        {
-          question: 'any_question',
-          answers: [{
-            image: 'any_image',
-            answer: 'any_answer'
-          }, {
-            answer: 'any_answer'
-          }],
-          date: new Date()
-        },
-        {
-          question: 'other_question',
-          answers: [{
-            image: 'other_image',
-            answer: 'other_answer'
-          }, {
-            answer: 'other_answer'
-          }],
-          date: new Date()
-        }
-      ])
+    test('Should return 204 on load surveys with valid accessToken', async () => {
       const res = await accountCollection.insertOne({
         name: 'Daniel Otaviano',
         email: 'danielotavianobp@gmail.com',
@@ -131,7 +109,7 @@ describe('Survey Routes', () => {
       await request(app)
         .get('/api/surveys')
         .set('x-access-token', accessToken)
-        .expect(200)
+        .expect(204)
     })
   })
 })
