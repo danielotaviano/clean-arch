@@ -32,7 +32,7 @@ describe('Survey Routes', () => {
   })
 
   describe('POST /surveys', () => {
-    test('Should return 406 on add survey without accessToken', async () => {
+    test('Should return 403 on add survey without accessToken', async () => {
       await request(app)
         .post('/api/surveys')
         .send({
@@ -81,6 +81,14 @@ describe('Survey Routes', () => {
           ]
         })
         .expect(204)
+    })
+  })
+  describe('GET /surveys', () => {
+    test('Should return 403 on load surveys without accessToken', async () => {
+      await request(app)
+        .get('/api/surveys')
+        .send()
+        .expect(403)
     })
   })
 })
