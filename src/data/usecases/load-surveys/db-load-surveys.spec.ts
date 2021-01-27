@@ -1,8 +1,9 @@
 /* eslint-disable jest/expect-expect */
-import { SurveyModel } from '../../../domain/models/survey'
-import { LoadSurveysRepository } from '../../protocols/db/survey/load-surveys-repository'
-import { DbLoadSurveys } from './db-load-surveys'
+
+import { LoadSurveysRepository } from '@/data/protocols/db/survey/load-surveys-repository'
+import { SurveyModel } from '@/domain/models/survey'
 import MockDate from 'mockdate'
+import { DbLoadSurveys } from './db-load-surveys'
 
 const makeFakeSurveys = (): SurveyModel[] => {
   return [{

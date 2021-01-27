@@ -1,9 +1,8 @@
 /* eslint-disable jest/expect-expect */
 import { SurveyModel, LoadSurveys } from './load-survey-protocols'
 import { LoadSurveysController } from './load-surveys-controller'
-import { noContent, ok, serverError } from '../../../helpers/http/http-helper'
+import { noContent, serverError, ok } from '@/presentation/helpers/http/http-helper'
 import MockDate from 'mockdate'
-
 const makeFakeSurveys = (): SurveyModel[] => {
   return [{
     id: 'any_id',

@@ -1,9 +1,9 @@
 /* eslint-disable jest/expect-expect */
+import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
 import { sign } from 'jsonwebtoken'
 import { Collection } from 'mongodb'
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import request from 'supertest'
-import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
 import app from '../config/app'
 import env from '../config/env'
 

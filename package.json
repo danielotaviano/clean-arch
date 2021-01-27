@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/main/server.js",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
     "dev": "ts-node-dev src/main/server.ts",
     "up": "npm run build && docker-compose up -d",
     "down": "docker-compose down",
@@ -51,10 +51,14 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
     "mongodb": "^3.6.3",
     "validator": "^13.5.2"
   },
   "engines": {
     "node": "15.x"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }

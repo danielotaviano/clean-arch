@@ -2,8 +2,8 @@
 import { forbidden, ok, serverError } from '../helpers/http/http-helper'
 import { AccessDeniedError } from '../errors'
 import { AuthMiddleware } from './auth-middleware'
-import { AccountModel } from '../../domain/models/account'
 import { HttpRequest, LoadAccountByToken } from './auth-middleware-protocols'
+import { AccountModel } from '@/domain/models/account'
 
 const makeFakeAccount = ():AccountModel => ({
   email: 'any_email@mail.com',

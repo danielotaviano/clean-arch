@@ -1,13 +1,13 @@
 
-import { EmailInUseError } from '../../../errors'
-import { badRequest, forbidden, ok, serverError } from '../../../helpers/http/http-helper'
-import { Validation } from '../../../protocols/validation'
+import { EmailInUseError } from '@/presentation/errors'
+import { badRequest, forbidden, serverError, ok } from '@/presentation/helpers/http/http-helper'
 import {
   AddAccount,
   Controller,
   HttpRequest,
   HttpResponse,
-  Authentication
+  Authentication,
+  Validation
 } from './signup-controller-protocols'
 
 export class SignUpController implements Controller {
@@ -35,6 +35,7 @@ export class SignUpController implements Controller {
         email,
         password
       })
+
       return ok({ accessToken })
     } catch (error) {
       return serverError(error)
